@@ -6,7 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest",
+    "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
+    "lint:css":"stylelint './src/**/*.ts'"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "npm run lint",
+    "*.{css,vue}": "npm run lint:css"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
   },
   "dependencies": {
     "next": "9.4.4",
@@ -25,17 +37,23 @@
     "babel-jest": "^26.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "typescript": "^3.9.7"
   }
 }
