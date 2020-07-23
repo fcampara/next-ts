@@ -6,19 +6,28 @@ import Header from 'layout/Header'
 import Footer from 'layout/Footer'
 import GlobalStyle from 'theme/globalStyle'
 import '@fortawesome/fontawesome-free/css/all.css'
+import Head from 'next/head'
 
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-        <Footer />
-      </ThemeProvider>
+      <>
+        <Head>
+          <script
+            type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0XTOZPRmqjj4wI_HFhZ7EzlJtJ9ojrqI&libraries=places"
+          ></script>
+        </Head>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Header />
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+          <Footer />
+        </ThemeProvider>
+      </>
     )
   }
 }

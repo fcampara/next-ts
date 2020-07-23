@@ -1,10 +1,10 @@
 import { Header } from 'layout/Header/style'
-import Input from 'components/Input'
+import AutocompleteAddress from 'components/AutocompleteAddress'
 export default function Home() {
   return (
     <Header>
       <div className="header__container">
-        <Input className="header__input" />
+        <AutocompleteAddress className="header__input" />
       </div>
     </Header>
   )
